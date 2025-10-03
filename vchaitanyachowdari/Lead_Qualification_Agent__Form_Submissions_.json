@@ -1,0 +1,282 @@
+{
+  "name": "Lead Qualification Agent (Form Submissions)",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "Work With Us",
+        "formDescription": "Provide your details below and we'll be in touch!",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "What is your name?",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "What is your email?",
+              "fieldType": "email",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "What is your company website?",
+              "placeholder": "e.g. https://morningside.ai",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "What can we help you with?",
+              "fieldType": "textarea",
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "e0fb59a4-da2a-4fa6-affb-c20a7aaecf11",
+      "name": "On form submission",
+      "webhookId": "1f3efdb5-7236-4252-9ffc-90b7f832e9c9"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api-d7b62b.stack.tryrelevance.com/latest/studios/38a90ea4-0cf2-4dc5-973d-57723894eec8/trigger_limited",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\"params\":{\"company_url\":\"{{ $json['What is your company website?'] }}\"},\"project\":\"0c56b0c620bb-445e-b78a-67b45c5eb637\"}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        220,
+        0
+      ],
+      "id": "ff4af0ea-c497-4540-a291-ed0c280d72fa",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are an inbound lead qualification agent. Your job is to analyze the form submission and company research provided and decide whether they are qualified to work with Big Boy Recruits, a Dallas based recruitment firm.\n\nBig Boy Recruits specializes in IT and tech talent placements. We are specialists in capturing talent post liquidiation and can therefore provide talent to our clients as we hit the market. \n\nWe only work with Software based businesses, e.g. SaaS companies or development agencies. These companies are willing to pay much more developers than your average marketing company or local business, therefore we only work with them.\n\nYour job is to determine if the lead you are provided with is a good fit for Big Boy Recruits, and if so call the 'lead_is_qualified' tool and send the lead information to it. If the lead is not qualified, then you must trigger the gmail send email tool for us to respond to them letting them know we are unable to help them.\n\nHere is the lead information for you to analyze:\nName: {{ $('On form submission').item.json['What is your name?'] }}\nCompany URL: {{ $('On form submission').item.json['What is your company website?'] }}\nMessage/Request: {{ $('On form submission').item.json['What can we help you with?'] }}\nCompany Research (scraped from their website):\n{{ $json.output.company_information_answer }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        440,
+        0
+      ],
+      "id": "6fdc8588-3ecd-4b44-9827-941a31faac5e",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "o3-mini-2025-01-31",
+          "mode": "list",
+          "cachedResultName": "o3-mini-2025-01-31"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        400,
+        180
+      ],
+      "id": "203ced90-29bd-41cf-a1b5-545b76bed5a2",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "eqBVSbAQlCzrGHT0",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('On form submission').item.json['What is your email?'] }}",
+        "subject": "Thanks for your interest!",
+        "emailType": "text",
+        "message": "=Hi {{ $('On form submission').item.json['What is your name?'] }},\n\nThanks for your interest in Big Boy Recruitment services! AS we specialze in recruitment for software businesses such as SaaS and development agencies, we're not a good fit for you based on your company's industry.\n\nPlease let me know if you'd like us to connect you with one of our partners who specialzies in dealing with your needs.\n\nCheers,\n\nHuge Jackman\nHead of Sales, Big Boy Recruits (BBR)\nDallas, TX",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmailTool",
+      "typeVersion": 2.1,
+      "position": [
+        740,
+        200
+      ],
+      "id": "4cb3b48f-7f02-4f34-ac87-014b079bbb69",
+      "name": "Gmail",
+      "webhookId": "a27b12af-f20d-44ab-a5e6-442b3cc402b4",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "vYqv8qk3JvPdYH1m",
+          "name": "Admin Email"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "name": "lead_is_qualified",
+        "description": "If the lead is qualified to work with Big Boy Recruits, e.g. they are a software based business like SaaS or development agencies, then trigger this tool and send the lead data in the following format (the data in this is dummy and you should replace it with the correct data):\n\n{\n  \"name\": \"a name\",\n  \"email\": \"adm@gmail.com\",\n  \"message\": \"I want a new dev\",\n\"qualified\": true\",\n  \"company_information\": \"this comapny is from Miranda...big bit of info here\"\n}",
+        "workflowId": {
+          "__rl": true,
+          "value": "MCWZdvB2gj71Up2K",
+          "mode": "list",
+          "cachedResultName": "Qualified Lead Classifier AND Notifier"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Qualified": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Qualified', `If the lead is qualified based on our criteria, set to true`, 'boolean') }}",
+            "Lead Name": "={{ $('On form submission').item.json['What is your name?'] }}",
+            "Email": "={{ $('On form submission').item.json['What is your email?'] }}",
+            "Message": "={{ $('On form submission').item.json['What can we help you with?'] }}",
+            "Company Information": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Company_Information', `A short summary of the company's details and the industry that they are in`, 'string') }}"
+          },
+          "matchingColumns": [
+            "Lead Name"
+          ],
+          "schema": [
+            {
+              "id": "Lead Name",
+              "displayName": "Lead Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "Message",
+              "displayName": "Message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "Company Information",
+              "displayName": "Company Information",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "Qualified",
+              "displayName": "Qualified",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "boolean",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2,
+      "position": [
+        600,
+        220
+      ],
+      "id": "7b7657db-8e34-440d-ab31-c1a301704d9c",
+      "name": "Call n8n Workflow Tool"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gmail": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call n8n Workflow Tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "2eb1ce79-bc91-4188-9ad2-a778cce4378e",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "9f71fdbdff343c16880bcc76dd9e56bbd5679c07afb44ebea84e8a8aa87a3233"
+  },
+  "id": "3bZ9ef9L5slciTyB",
+  "tags": []
+}
