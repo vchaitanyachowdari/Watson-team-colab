@@ -1,0 +1,16 @@
+# Auto detect text files and normalize line endings
+* text=auto eol=lf
+
+# Treat these as binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+
+# Merge strategies
+*.lock merge=union
+package-lock.json merge=union
+pnpm-lock.yaml merge=union
+yarn.lock merge=union
