@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Your Name] - Learning Journey</title>
+    
+    <style>
+        /* --- General Styles & Typography --- */
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #121212; /* Dark Charcoal Background */
+            color: #e0e0e0; /* Light Gray Text */
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        h1, h2 {
+            font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #ffffff;
+            border-bottom: 2px solid #00bfff; /* Electric Blue Accent */
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* --- Section 1: Hero --- */
+        #hero {
+            /* STYLE NOTE: Replace 'ai-circuits.jpg' with the actual filename of your background image. 
+               Make sure the image is in the same folder as this HTML file.
+            */
+            background-image: linear-gradient(rgba(18, 18, 18, 0.7), rgba(18, 18, 18, 0.9)), url('ai-circuits.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        #hero .sub-headline {
+            font-size: 1.2rem;
+            color: #cccccc;
+        }
+
+        /* --- Section 2: About --- */
+        #about .about-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        #about img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%; /* Makes the image a circle */
+            border: 3px solid #00bfff; /* Accent color border */
+            object-fit: cover;
+        }
+
+        /* --- Section 3: Project & Learnings --- */
+        #project {
+            background-color: #1c1c1c; /* Slightly lighter dark shade */
+        }
+        
+        /* --- Section 4: Call to Action (CTA) --- */
+        #contact {
+            text-align: center;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #00bfff; /* Electric Blue Accent */
+            color: #ffffff;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: transform 0.2s ease;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05); /* Slight zoom effect on hover */
+        }
+
+    </style>
+</head>
+<body>
+
+    <section id="hero">
+        <h1>Collaboration & Clarity: Building in the Age of AI.</h1>
+        <p class="sub-headline">A personal portfolio and learning journey by [Your Name].</p>
+    </section>
+
+    <section id="about" class="container">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <img src="profile.jpg" alt="A photo of [Your Name]">
+            <div>
+                <p>
+                    I'm a passionate learner exploring the intersection of technology, AI, and teamwork. I believe that the most complex problems are solved when brilliant minds collaborate with clarity and purpose. This page is the first step in my journey of learning in public.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="project" class="container">
+        <h2>Project 01: The Landing Page Challenge</h2>
+        <p>
+            This entire page is my first hands-on project! The goal was to go from a high-level plan to a fully coded page, putting fundamental concepts into practice. I focused on creating a clean structure with HTML and adding a modern, tech-focused style using CSS. The whole process is tracked on my GitHub.
+        </p>
+    </section>
+
+    <section id="contact" class="container">
+        <h2>Connect & Collaborate</h2>
+        <p>I believe in learning together. Let's connect and share our journey.</p>
+        <a href="#" class="cta-button">View My GitHub</a>
+    </section>
+
+</body>
+</html>
