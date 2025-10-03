@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BDR Call Logger – Close More Deals with Every Call</title>
+  <meta name="description" content="BDR Call Logger helps sales teams capture, analyze, and act on every outreach call. Increase connect rates, coach reps faster, and automate CRM hygiene." />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="BDR Call Logger – Close More Deals with Every Call" />
+  <meta property="og:description" content="Capture, analyze, and act on every outreach call. Increase connect rates, coach reps faster, and automate CRM hygiene." />
+  <meta property="og:image" content="https://dummyimage.com/1200x630/111827/ffffff&text=BDR+Call+Logger" />
+  <meta property="og:url" content="https://example.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon (replace with your own) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E%F0%9F%93%B1%3C/text%3E%3C/svg%3E" />
+
+  <!-- SEO basics -->
+  <link rel="canonical" href="https://example.com/" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "BDR Call Logger",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "Sales call logging and coaching platform that automates notes, syncs to CRM, and surfaces insights.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "url": "https://example.com",
+    "image": "https://dummyimage.com/1200x630/111827/ffffff&text=BDR+Call+Logger"
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+
+  <!-- Minimal CSS (no framework) -->
+  <style>
+    :root {
+      --bg: #0b1220;
+      --panel: #0f172a;
+      --muted: #94a3b8;
+      --text: #e2e8f0;
+      --brand: #7c3aed; /* violet-600 */
+      --brand-2: #22d3ee; /* cyan-400 */
+      --ring: rgba(124, 58, 237, .4);
+      --success: #22c55e;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', sans-serif;
+      background: radial-gradient(1200px 800px at 20% -10%, rgba(124,58,237,.25), transparent),
+                  radial-gradient(900px 600px at 120% 10%, rgba(34,211,238,.18), transparent),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display:block; }
+    .container { width: min(1200px, 92%); margin: 0 auto; }
+
+    /* Accessibility */
+    .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+    .skip-link:focus { left: 1rem; top: 1rem; width: auto; height: auto; background: #fff; color: #000; padding: .5rem .75rem; border-radius: .5rem; }
+    :focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; border-radius: .5rem; }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto; } }
+
+    /* Utility */
+    .btn { display:inline-flex; align-items:center; gap:.5rem; padding:.85rem 1.1rem; border-radius:.9rem; font-weight:600; border:1px solid transparent; transition: transform .18s ease, box-shadow .18s ease, background .2s ease, border-color .2s ease; }
+    .btn-primary { background: linear-gradient(135deg, var(--brand), #6d28d9); box-shadow: 0 10px 25px rgba(124,58,237,.35); }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 14px 30px rgba(124,58,237,.45); }
+    .btn-secondary { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.14); }
+    .btn-secondary:hover { background: rgba(255,255,255,.1); }
+    .badge { display:inline-flex; align-items:center; gap:.4rem; padding:.35rem .6rem; border-radius: 999px; background: rgba(124,58,237,.15); border:1px solid rgba(124,58,237,.35); color:#e9d5ff; font-weight:600; font-size:.8rem; }
+
+    /* Header */
+    header { position: sticky; top: 0; z-index: 50; backdrop-filter:saturate(180%) blur(12px); background: rgba(11,18,32,.6); border-bottom: 1px solid rgba(255,255,255,.07); }
+    .nav { display:flex; align-items:center; justify-content:space-between; padding: .85rem 0; }
+    .brand { display:flex; align-items:center; gap:.6rem; font-weight:800; letter-spacing:.3px; }
+    .brand-logo { width:32px; height:32px; border-radius:.7rem; background: conic-gradient(from 120deg, var(--brand), var(--brand-2)); display:grid; place-items:center; color:#0b1220; font-weight:900; }
+    .nav-links { display:flex; gap:1rem; align-items:center; }
+    .nav-links a { padding:.5rem .7rem; border-radius:.6rem; color:var(--muted); font-weight:600; }
+    .nav-links a:hover { color: #fff; background: rgba(255,255,255,.06); }
+
+    /* Hero */
+    .hero { padding: 7rem 0 3rem; text-align: center; }
+    .hero h1 { font-size: clamp(2rem, 4.8vw, 3.5rem); line-height:1.1; margin:.5rem 0 1rem; letter-spacing:-.02em; }
+    .hero p { color: var(--muted); font-size: clamp(1rem, 2.5vw, 1.125rem); margin: 0 auto 1.6rem; max-width: 760px; }
+    .hero-cta { display:flex; gap:.8rem; justify-content:center; flex-wrap:wrap; margin-top:1.2rem; }
+
+    /* Demo frame */
+    .frame { position: relative; margin: 3rem auto 0; background: linear-gradient(180deg, #111827, #0b1220); border:1px solid rgba(255,255,255,.08); border-radius:1.2rem; box-shadow: 0 20px 50px rgba(0,0,0,.45); overflow: hidden; max-width: 1000px; }
+    .frame-bar { display:flex; gap:.35rem; padding:.6rem; border-bottom:1px solid rgba(255,255,255,.06); background: rgba(255,255,255,.03); }
+    .dot { width:10px; height:10px; border-radius:50%; background:#ef4444; }
+    .dot:nth-child(2){ background:#f59e0b; }
+    .dot:nth-child(3){ background:#22c55e; }
+    .frame video, .frame img { width:100%; height:auto; display:block; }
+
+    /* Sections */
+    section { padding: 5rem 0; }
+    .section-header { text-align:center; margin-bottom: 2.5rem; }
+    .eyebrow { color: #a78bfa; font-weight:800; letter-spacing:.14em; text-transform: uppercase; font-size:.8rem; }
+    .section-title { font-size: clamp(1.6rem, 3vw, 2.2rem); margin:.5rem 0; }
+    .section-sub { color: var(--muted); max-width: 760px; margin: 0 auto; }
+
+    /* Features */
+    .grid { display:grid; gap:1rem; }
+    .features { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    .card { background: rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:1rem; padding:1.3rem; transition: transform .18s ease, background .2s ease, border-color .2s ease; }
+    .card:hover { transform: translateY(-2px); background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.14); }
+    .card h3 { margin:.6rem 0 .4rem; font-size:1.1rem; }
+    .card p { color: var(--muted); font-size:.98rem; }
+    .icon { width: 40px; height: 40px; display:grid; place-items:center; border-radius:.7rem; background: linear-gradient(135deg, rgba(124,58,237,.25), rgba(34,211,238,.25)); border:1px solid rgba(124,58,237,.35); }
+
+    /* Steps */
+    .steps { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); counter-reset: step; }
+    .step { position: relative; padding-top: .5rem; }
+    .step::before { counter-increment: step; content: counter(step); position: absolute; top: 0; left: 0; width: 36px; height: 36px; border-radius: 10px; background: rgba(124,58,237,.25); border:1px solid rgba(124,58,237,.4); display:grid; place-items:center; font-weight: 800; }
+    .step h4 { margin:.3rem 0 .4rem 3rem; font-size:1.05rem; }
+    .step p { margin-left:3rem; color: var(--muted); }
+
+    /* Results */
+    .kpis { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+    .kpi { text-align:center; background: rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08); border-radius: 1rem; padding: 1.4rem; }
+    .kpi .num { font-size: 2rem; font-weight: 800; letter-spacing: -.02em; }
+    .kpi .label { color: var(--muted); font-weight:600; font-size:.95rem; }
+
+    /* CTA band */
+    .cta-band { background: linear-gradient(135deg, rgba(124,58,237,.18), rgba(34,211,238,.18)); border:1px solid rgba(255,255,255,.12); border-radius: 1.2rem; padding: 2rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+
+    /* Footer */
+    footer { padding: 3rem 0; color: var(--muted); border-top: 1px solid rgba(255,255,255,.08); }
+    .footer-grid { display:grid; grid-template-columns: 1fr auto; align-items:center; gap:1rem; }
+
+    /* Reveal animations */
+    .reveal { opacity: 0; transform: translateY(12px); transition: opacity .5s ease, transform .5s ease; }
+    .reveal.show { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header aria-label="Primary">
+    <div class="container nav">
+      <div class="brand" aria-label="BDR Call Logger">
+        <div class="brand-logo" aria-hidden="true">☎</div>
+        <span>BDR Call Logger</span>
+      </div>
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="#features">Features</a>
+        <a href="#process">How it works</a>
+        <a href="#results">Results</a>
+        <a href="#contact" class="btn btn-secondary" role="button">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="hero-title">
+      <span class="badge"><i class="ti ti-sparkles" aria-hidden="true"></i> New: AI Notes + CRM Sync</span>
+      <h1 id="hero-title">Close More Deals with Every Call</h1>
+      <p>BDR Call Logger captures call details automatically, generates AI-powered summaries, and syncs outcomes to your CRM — so reps can focus on conversations, not admin.</p>
+      <div class="hero-cta" role="group" aria-label="Primary calls to action">
+        <a class="btn btn-primary" href="#demo" id="cta-start"><i class="ti ti-rocket"></i> Start Free Trial</a>
+        <a class="btn btn-secondary" href="#demo"><i class="ti ti-player-play"></i> Watch 60s Demo</a>
+      </div>
+
+      <!-- Demo frame (replace image with actual video if available) -->
+      <div class="frame reveal" id="demo" aria-label="Product demo">
+        <div class="frame-bar" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <img src="https://dummyimage.com/1200x650/0f172a/ffffff&text=Embed+your+demo+video+or+GIF+here" alt="Screenshot of BDR Call Logger demo UI" loading="lazy" />
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" aria-labelledby="features-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow">Why teams choose us</div>
+          <h2 class="section-title" id="features-title">Designed for speed, built for accuracy</h2>
+          <p class="section-sub">From first dial to CRM update, we remove friction so your BDRs can reach more prospects and your managers get real-time visibility.</p>
+        </div>
+        <div class="grid features">
+          <article class="card reveal" aria-labelledby="f1">
+            <div class="icon" aria-hidden="true"><i class="ti ti-phone-call"></i></div>
+            <h3 id="f1">One-click call logging</h3>
+            <p>Auto-capture call metadata (caller, duration, disposition) with zero manual input.</p>
+          </article>
+          <article class="card reveal" aria-labelledby="f2">
+            <div class="icon" aria-hidden="true"><i class="ti ti-brain"></i></div>
+            <h3 id="f2">AI summaries</h3>
+            <p>Instant, structured notes with next steps and objection tags for fast follow-ups.</p>
+          </article>
+          <article class="card reveal" aria-labelledby="f3">
+            <div class="icon" aria-hidden="true"><i class="ti ti-cloud-upload"></i></div>
+            <h3 id="f3">CRM sync</h3>
+            <p>Bi-directional sync with Salesforce and HubSpot keeps data trustworthy.</p>
+          </article>
+          <article class="card reveal" aria-labelledby="f4">
+            <div class="icon" aria-hidden="true"><i class="ti ti-headset"></i></div>
+            <h3 id="f4">Coaching-ready</h3>
+            <p>Flag moments, share snippets, and benchmark talk ratios to coach in minutes.</p>
+          </article>
+          <article class="card reveal" aria-labelledby="f5">
+            <div class="icon" aria-hidden="true"><i class="ti ti-bolt"></i></div>
+            <h3 id="f5">Workflows</h3>
+            <p>Trigger sequences and tasks based on outcomes — no more manual routing.</p>
+          </article>
+          <article class="card reveal" aria-labelledby="f6">
+            <div class="icon" aria-hidden="true"><i class="ti ti-lock"></i></div>
+            <h3 id="f6">Privacy & security</h3>
+            <p>Role-based access, audit logs, and SOC2-ready controls out of the box.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section id="process" aria-labelledby="process-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow">Get started in minutes</div>
+          <h2 class="section-title" id="process-title">From dial to insight in 3 simple steps</h2>
+          <p class="section-sub">No heavy lift. Connect your CRM, invite your team, and you’re ready to log and learn from every call.</p>
+        </div>
+        <div class="grid steps">
+          <div class="card step reveal">
+            <h4>Connect</h4>
+            <p>Securely connect Salesforce or HubSpot and choose the fields you want to sync.</p>
+          </div>
+          <div class="card step reveal">
+            <h4>Call & Capture</h4>
+            <p>Reps click one button to log calls. AI creates summaries, outcomes, and next steps.</p>
+          </div>
+          <div class="card step reveal">
+            <h4>Coach & Automate</h4>
+            <p>Managers review highlights, coach faster, and trigger sequences based on results.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results / KPIs -->
+    <section id="results" aria-labelledby="results-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow">Proven outcomes</div>
+          <h2 class="section-title" id="results-title">What teams achieve with BDR Call Logger</h2>
+          <p class="section-sub">Real customers report better connect rates, cleaner CRM data, and faster ramp times.</p>
+        </div>
+        <div class="grid kpis">
+          <div class="kpi reveal" aria-label="Increase in connects">
+            <div class="num" data-target="28">0%</div>
+            <div class="label">Avg. increase in connects</div>
+          </div>
+          <div class="kpi reveal" aria-label="Time saved per rep per week">
+            <div class="num" data-target="6">0h</div>
+            <div class="label">Hours saved / rep / week</div>
+          </div>
+          <div class="kpi reveal" aria-label="Faster ramp time">
+            <div class="num" data-target="35">0%</div>
+            <div class="label">Faster new-rep ramp</div>
+          </div>
+          <div class="kpi reveal" aria-label="CRM hygiene">
+            <div class="num" data-target="99">0%</div>
+            <div class="label">CRM activity captured</div>
+          </div>
+        </div>
+
+        <div class="cta-band reveal" role="region" aria-label="Call to action">
+          <div>
+            <h3 style="margin:0 0 .25rem">Ready to see it in action?</h3>
+            <p style="margin:0; color:var(--muted)">Start a free 14‑day trial — no credit card required.</p>
+          </div>
+          <div>
+            <a class="btn btn-primary" href="#signup"><i class="ti ti-rocket"></i> Start Free Trial</a>
+            <a class="btn btn-secondary" href="#contact"><i class="ti ti-mail"></i> Talk to Sales</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social proof (optional placeholder) -->
+    <section aria-labelledby="logos-title">
+      <div class="container section-header">
+        <div class="eyebrow">Trusted by modern revenue teams</div>
+        <p class="section-sub">Add a few customer logos here for extra validation.</p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" aria-labelledby="footer-title">
+      <div class="container footer-grid">
+        <div>
+          <strong id="footer-title" style="color:#fff">BDR Call Logger</strong>
+          <p style="margin:.25rem 0 0">Have questions? <a href="mailto:sales@example.com">sales@example.com</a></p>
+        </div>
+        <div style="display:flex; gap:.6rem; align-items:center;">
+          <a class="btn btn-secondary" href="#privacy" aria-label="Privacy Policy">Privacy</a>
+          <a class="btn btn-secondary" href="#terms" aria-label="Terms of Service">Terms</a>
+          <a class="btn btn-secondary" href="#status" aria-label="System Status">Status</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Minimal JS: smooth scroll, reveal on scroll, KPI counters -->
+  <script>
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Reveal animations
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        }
+      }
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // KPI counters
+    const kpiObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target.querySelector('.num');
+        const target = parseInt(el.getAttribute('data-target'), 10);
+        const isHours = el.textContent.includes('h');
+        let start = 0; const duration = 1400; const startTime = performance.now();
+        function tick(now){
+          const p = Math.min(1, (now - startTime) / duration);
+          const value = Math.floor(p * target);
+          el.textContent = isHours ? value + 'h' : value + '%';
+          if (p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+        kpiObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('.kpi').forEach(el => kpiObserver.observe(el));
+  </script>
+
+  <!-- Example: analytics placeholder (replace with your own) -->
+  <script>
+    // window.analytics = { track: (e, p) => console.log('track', e, p) };
+    // document.getElementById('cta-start').addEventListener('click', () => analytics.track('cta_start_clicked'));
+  </script>
+</body>
+</html>
