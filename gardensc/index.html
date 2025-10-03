@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Product Leader | AI Solutions That Scale</title>
+    <meta name="description" content="Technical Product Leader specializing in AI solutions. Designing, building, and deploying AI-powered products from concept to market with measurable business impact.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        /* ---------------------------------------------------
+        5. Visual Design & Accessibility Guidelines 
+        ---------------------------------------------------
+        */
+
+        /* Color Palette & Base Styles */
+        :root {
+            --color-primary: #0080FF;      /* Electric Blue */
+            --color-secondary: #8B5CF6;    /* Vibrant Purple */
+            --color-accent: #FF6B35;       /* Bold Orange */
+            --color-neutral-dark: #111827; /* Near-Black for text */
+            --color-neutral-light: #F9FAFB;/* Very Light Gray/Off-White */
+            --color-white: #FFFFFF;
+            --color-gray-text: #6B7280;
+            --max-width: 1200px;
+        }
+
+        /* 5.2 Typography & Reset */
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--color-neutral-dark);
+            background-color: var(--color-white);
+            line-height: 1.6; /* 1.6-1.8 for readability */
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 900;
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 3.5rem; } /* ~56px desktop */
+        h2 { font-size: 2.5rem; } /* ~40px desktop */
+        h3 { font-size: 1.5rem; } /* ~24px desktop */
+        
+        p { 
+            font-size: 1.125rem; /* 18px body text */
+            max-width: 70ch; /* ~70 characters per line */
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--color-primary);
+        }
+
+        /* 5.3 Layout & Spacing */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1.5rem; /* Generous white space */
+        }
+
+        section {
+            padding: 6rem 0; /* Clear section separation */
+        }
+
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        .text-lead { font-size: 1.5rem; font-weight: 600; color: var(--color-gray-text); margin-bottom: 2rem; }
+        
+        /* 4.1 Hero Section Styling */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            /* Vibrant gradient background */
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: var(--color-white);
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            padding: 8rem 0;
+        }
+        
+        .hero-content {
+            padding: 2rem 0;
+        }
+        
+        .hero h1 {
+            font-size: 5rem; /* Very large: ~80px desktop */
+            margin-bottom: 1rem;
+            line-height: 1;
+        }
+
+        .hero-tagline {
+            font-size: 2.25rem; /* ~36px */
+            font-weight: 700;
+            margin-bottom: 2.5rem;
+            color: var(--color-neutral-light);
+        }
+
+        .hero-ctas a {
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 700;
+            transition: background-color 0.3s, color 0.3s;
+            display: inline-block;
+            margin-right: 1.5rem;
+            margin-bottom: 1rem;
+            min-width: 180px; /* For touch targets */
+            text-align: center;
+        }
+
+        .cta-primary {
+            background-color: var(--color-accent); /* Bold Orange */
+            color: var(--color-white);
+            border: 2px solid var(--color-accent);
+        }
+
+        .cta-primary:hover {
+            background-color: #e85827; /* Darker Orange */
+        }
+
+        .cta-secondary {
+            background-color: transparent;
+            color: var(--color-white);
+            border: 2px solid var(--color-white);
+        }
+
+        .cta-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* 4.2 About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+        }
+
+        /* 4.3 Skills Section */
+        .skills {
+            background-color: var(--color-neutral-light);
+            border-bottom: 1px solid #E5E7EB;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .skill-category {
+            padding: 2rem;
+            background-color: var(--color-white);
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            border-top: 5px solid var(--color-primary); /* Use color accent */
+        }
+
+        .skill-category:nth-child(2) { border-color: var(--color-secondary); }
+        .skill-category:nth-child(3) { border-color: var(--color-accent); }
+        .skill-category:nth-child(4) { border-color: var(--color-gray-text); }
+        
+        .skill-category h3 {
+            font-size: 1.75rem;
+            margin-top: 0;
+            color: var(--color-neutral-dark);
+        }
+
+        .skill-category ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skill-category li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--color-gray-text);
+        }
+
+        .skill-category li::before {
+            content: '•';
+            color: var(--color-accent);
+            font-weight: 700;
+            position: absolute;
+            left: 0;
+        }
+
+        /* 4.4 Work/Projects Section */
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            border-radius: 0.75rem;
+            overflow: hidden;
+            background-color: var(--color-white);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-thumbnail {
+            width: 100%;
+            height: 300px;
+            background-color: var(--color-neutral-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--color-gray-text);
+            overflow: hidden;
+        }
+
+        .project-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 2rem;
+            flex-grow: 1;
+        }
+
+        .project-content h3 {
+            color: var(--color-primary);
+            margin-top: 0;
+        }
+
+        .project-metric {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            margin: 1rem 0;
+            border-left: 4px solid var(--color-accent);
+            padding-left: 1rem;
+        }
+
+        .project-cta {
+            display: inline-block;
+            margin-top: 1.5rem;
+            color: var(--color-secondary);
+            font-weight: 700;
+            border-bottom: 2px solid var(--color-secondary);
+        }
+
+        /* 4.5 Contact Section */
+        .contact {
+            background-color: var(--color-secondary);
+            color: var(--color-white);
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: var(--color-white);
+        }
+
+        .contact p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 3rem;
+        }
+
+        .contact .cta-primary {
+            background-color: var(--color-accent); 
+            color: var(--color-white);
+            border: 2px solid var(--color-accent);
+            font-size: 1.25rem;
+            padding: 1.25rem 3rem;
+            min-width: 250px;
+        }
+
+        .contact .cta-primary:hover {
+            background-color: var(--color-primary);
+            border-color: var(--color-primary);
+        }
+
+        /* Footer for links and copyright */
+        .footer {
+            padding: 2rem 0;
+            background-color: var(--color-neutral-dark);
+            color: var(--color-gray-text);
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* 7. Accessibility - Focus States */
+        a:focus, button:focus, .cta-primary:focus, .cta-secondary:focus {
+            outline: 3px solid var(--color-accent);
+            outline-offset: 2px;
+        }
+
+
+        /* -----------------------------------
+           8. Responsive Design Guidelines
+           ----------------------------------- */
+
+        /* Tablet (768px - 1024px) */
+        @media (min-width: 768px) {
+            .about-content {
+                grid-template-columns: 2fr 1fr; /* Example of multi-column layout on tablet/desktop */
+            }
+
+            .project-grid {
+                grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            }
+        }
+
+        /* Mobile (< 768px) */
+        @media (max-width: 767px) {
+            /* 5.2 Typography - Mobile Sizes */
+            h1 { font-size: 2.5rem; } /* ~40px mobile */
+            h2 { font-size: 2rem; }   /* ~32px mobile */
+            h3 { font-size: 1.25rem; } /* ~20px mobile */
+            p { font-size: 1rem; }    /* 16px body text mobile */
+
+            /* 4.1 Hero Section - Mobile Adjustments */
+            .hero {
+                padding: 6rem 0;
+                min-height: auto;
+            }
+
+            .hero-tagline {
+                font-size: 1.5rem;
+            }
+
+            .hero-ctas a {
+                margin-right: 0;
+                display: block; /* Stack CTAs vertically */
+            }
+
+            /* 4.3 Skills Section - Stacking */
+            .skills-grid {
+                gap: 1.5rem;
+            }
+            
+            /* 4.5 Contact Section - Mobile Adjustments */
+            .contact p {
+                font-size: 1.25rem;
+            }
+        }
+
+        /* Desktop (> 1024px) */
+        @media (min-width: 1024px) {
+            .hero h1 {
+                font-size: 6rem; /* Large typography for impact */
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link" style="position: absolute; top: -40px; left: 0; background: var(--color-accent); color: var(--color-white); padding: 8px; z-index: 100;">Skip to main content</a>
+    
+    <header>
+        </header>
+
+    <main id="main-content">
+        <section class="hero" id="hero">
+            <div class="container hero-content">
+                <h1>[Your Name Here]</h1>
+                <p class="hero-tagline">I turn AI technology into business results.</p>
+                <p class="text-lead">Technical Product Leader building AI solutions that scale from concept to deployment.</p>
+                <div class="hero-ctas">
+                    <a href="#work" class="cta-primary">View My Work</a>
+                    <a href="https://www.linkedin.com/in/[yourusername]" target="_blank" rel="noopener noreferrer" class="cta-secondary">Connect on LinkedIn</a>
+                </div>
+            </div>
+        </section>
+
+        <hr> <section class="about" id="about">
+            <div class="container">
+                <h2 class="text-center">My Approach & Unique Value</h2>
+                
+                <div class="about-content" style="margin-top: 3rem;">
+                    <div>
+                        <p><strong>Your Background:</strong> I began my career blending technical execution with design thinking, and now focus exclusively on the next frontier: AI-powered products. My journey has given me the unique perspective required to bridge the gap between abstract AI research and tangible, market-ready products. I've successfully transitioned from a full-stack developer/designer to a technical product leader capable of owning the entire lifecycle.</p>
+                        
+                        <p><strong>What Drives Me:</strong> I'm driven by the potential of **Generative AI** and **automation frameworks** to fundamentally reshape business processes. The most exciting problems are those that require translating complex AI models (Diffusion, LLMs, ControlNet) into simple, elegant, and scalable user interfaces that deliver measurable ROI.</p>
+                        
+                        <p><strong>Your Unique Value:</strong> My strength lies in my **full-stack AI expertise**—I don't just design the product, I build the systems, train the models, and architect the deployment. I bring the rare combination of **UX/UI design**, **full-stack development**, and **business strategy** to ensure that technical innovation is always aligned with a clear business outcome.</p>
+
+                        <p>I thrive in collaborative environments, leading cross-functional teams to tackle challenges from model training with LoRA to designing user-centered interfaces for complex workflows. **End-to-end ownership** is my standard.</p>
+                    </div>
+                    <div style="background-color: var(--color-neutral-light); border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; height: 100%; min-height: 250px; border: 1px solid #D1D5DB;">
+                        <p style="text-align: center; color: var(--color-gray-text); max-width: 90%;">[Optional Abstract Visual Placeholder or Headshot]</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr> <section class="skills" id="skills">
+            <div class="container">
+                <h2 class="text-center">Full-Stack AI Capabilities</h2>
+                <div class="skills-grid">
+                    
+                    <div class="skill-category">
+                        <h3>AI/ML Engineering</h3>
+                        <ul>
+                            <li>Generative AI (Diffusion, SDXL, ControlNet)</li>
+                            <li>LLM Development & Fine-tuning (LoRA)</li>
+                            <li>Model Deployment (Replicate, Flux)</li>
+                            <li>ComfyUI Pipelines & Workflow Architecture</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Full-Stack Development</h3>
+                        <ul>
+                            <li>FastAPI, Supabase, Next.js (MERN/PERN stack knowledge)</li>
+                            <li>API Design & Integration</li>
+                            <li>Database Architecture & Optimization</li>
+                            <li>MVP Development & Rapid Prototyping</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>UX/UI Design</h3>
+                        <ul>
+                            <li>User-centered design for AI tools</li>
+                            <li>Interface design for complex systems</li>
+                            <li>Prototyping & Testing (Figma)</li>
+                            <li>Visual System Creation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Business & Strategy</h3>
+                        <ul>
+                            <li>Product Launch & Go-to-Market Strategy</li>
+                            <li>AI Adoption & Scaling Strategy</li>
+                            <li>Growth Strategy & Optimization</li>
+                            <li>Cross-functional Technical Leadership</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr> <section class="work" id="work">
+            <div class="container">
+                <h2 class="text-center">Product Launch Stories & Impact</h2>
+                <p class="text-lead text-center">End-to-end ownership from strategy to deployment, driving measurable business outcomes.</p>
+                
+                <div class="project-grid">
+                    
+                    <article class="project-card">
+                        <div class="project-thumbnail" role="img" aria-label="Thumbnail for Project AI-Flow Automation. Placeholder image.">
+                            Project 1: AI-Flow Automation (Image Placeholder)
+                        </div>
+                        <div class="project-content">
+                            <h3>Project Title: AI-Flow Automation Platform</h3>
+                            <p>One-line description of the AI solution and its business function.</p>
+                            <p class="project-metric">Key Metrics: Reduced workflow processing time by 60% and cut operational costs by $50K/mo.</p>
+                            <a href="[Link to detailed case study 1]" class="project-cta" aria-label="View full case study for AI-Flow Automation Platform">View Case Study &rarr;</a>
+                        </div>
+                    </article>
+                    
+                    <article class="project-card">
+                        <div class="project-thumbnail" role="img" aria-label="Thumbnail for Generative Design Tool. Placeholder image.">
+                            Project 2: Generative Design Tool (Image Placeholder)
+                        </div>
+                        <div class="project-content">
+                            <h3>Project Title: Enterprise Generative Design Tool</h3>
+                            <p>An internal tool leveraging SDXL and ControlNet for marketing asset creation.</p>
+                            <p class="project-metric">Key Metrics: Increased content team's asset production speed by 4X; achieved 95% user adoption.</p>
+                            <a href="[Link to detailed case study 2]" class="project-cta" aria-label="View full case study for Enterprise Generative Design Tool">View Case Study &rarr;</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-thumbnail" role="img" aria-label="Thumbnail for LLM Customer Support Assistant. Placeholder image.">
+                            Project 3: LLM Customer Support Assistant (Image Placeholder)
+                        </div>
+                        <div class="project-content">
+                            <h3>Project Title: LLM-Powered Customer Support Assistant</h3>
+                            <p>Developed and fine-tuned a custom LLM solution to automate Level 1 support queries.</p>
+                            <p class="project-metric">Key Metrics: Automated 40% of incoming tickets; improved first-response time from 3 hours to 5 minutes.</p>
+                            <a href="[Link to detailed case study 3]" class="project-cta" aria-label="View full case study for LLM-Powered Customer Support Assistant">View Case Study &rarr;</a>
+                        </div>
+                    </article>
+                    
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="container">
+                <h2>Let's build something amazing together.</h2>
+                <p>Seeking a technical leader who can execute on vision? I'm always open to discussing new opportunities, from co-founding to freelance consulting.</p>
+                <a href="https://www.linkedin.com/in/[yourusername]" target="_blank" rel="noopener noreferrer" class="cta-primary">Connect on LinkedIn</a>
+                <p style="font-size: 1rem; margin-top: 1.5rem; opacity: 0.8;">Optional: <a href="mailto:youremail@example.com" style="color: var(--color-white); text-decoration: underline;">youremail@example.com</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 [Your Name]. Technical Product Leader specializing in AI Solutions. Built to Plan.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
