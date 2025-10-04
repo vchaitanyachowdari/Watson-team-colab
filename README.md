@@ -5,7 +5,7 @@
 A short description of the project. Explain what it does and who it is for.
 
 <a href="https://github.com/FlowiseAI/Flowise">
-<img width="100%" src="https://github.com/vchaitanyachowdari/Watson-team-colab/1753471006269.mp4?raw=true"></a>
+<img width="100%" src="1753471006269.mp4"></a>
 
 ## Features
 - Clear, concise bullets of core features
