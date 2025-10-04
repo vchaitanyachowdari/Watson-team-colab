@@ -6,6 +6,7 @@ A short description of the project. Explain what it does and who it is for.
 
 <video width="100%" controls>
   <source src="1753471006269.mp4" type="video/mp4">
+  Your browser does not support the video tag.
 </video>
 
 ## Features
