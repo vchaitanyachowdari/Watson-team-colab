@@ -55,6 +55,7 @@ Hey there! I'm **V. Chaitanya Chowdari**, a budding tech enthusiast from **Davan
 </p>
 
 ---
+---
 
 # Readme Studio
 
@@ -91,138 +92,116 @@ Readme Studio is a powerful web application that helps developers generate profe
 - **Responsive Design**: Works seamlessly across desktop and mobile devices
 - **Export Functionality**: Download your generated README as a Markdown file
 
-## 🛠️ Tech Stack
+---
+---
 
-This project is built with modern web technologies:
+# 🌍 GreenPulse – Climate Data Explorer
 
-- **[Vue 3](https://vuejs.org/)** (v3.5.17) - Progressive JavaScript framework with Composition API
-- **[TypeScript](https://www.typescriptlang.org/)** (~5.8.3) - Typed superset of JavaScript
-- **[Vite](https://vitejs.dev/)** (v7.0.4) - Fast build tool and development server
-- **[Pinia](https://pinia.vuejs.org/)** (v3.0.3) - Intuitive, type-safe state management
-- **[Vue Router](https://router.vuejs.org/)** (v4.5.1) - Official router for Vue.js applications
-- **[Tailwind CSS](https://tailwindcss.com/)** (v4.1.11) - Utility-first CSS framework
-- **[Marked](https://marked.js.org/)** (v16.1.1) - Markdown parser and compiler
-- **[DOMPurify](https://github.com/cure53/DOMPurify)** (v3.2.6) - DOM-only, super-fast, uber-tolerant XSS sanitizer
-- **[Google Generative AI](https://github.com/google/generative-ai-js)** (v0.24.1) - SDK for Google's Gemini AI models
+GreenPulse is a modern, responsive web app built with React and Vite to visualize key climate indicators using real-world, up-to-date environmental datasets.
 
-## 📦 Installation
+where the goal was to design a clean, user-friendly dashboard that raises awareness about global warming.
 
-Follow these steps to set up the project locally:
+---
 
-### Prerequisites
+## ✨ Features
 
-- [Node.js](https://nodejs.org/) (version 16 or higher)
-- npm (comes with Node.js) or [yarn](https://yarnpkg.com/)
+- 📊 Interactive charts for:
+  - Global land and ocean **temperatures**
+  - Atmospheric **CO₂**, **CH₄ (Methane)**, and **N₂O (Nitrous Oxide)**
+  - **Polar sea ice** extent
 
-### Steps
+- 🌦️ Live weather widget with 7-day forecast (collapsible on mobile)
+- ⚡ Powered by modern APIs and updated datasets
+- 📱 Responsive design with mobile-first adaptations:
+  - 🔁 **Switches to bar charts** on small screens for better readability
+- 🧭 Intuitive navigation with a clean Hero UI interface
+- 🧠 Smart caching to reduce redundant API calls
+- 🌈 Smooth animations & loading skeletons for a polished UX
+- 📤 Export any chart as **PNG** or **PDF**
+- 💡 Built using best practices in structure and performance
 
-1. **Clone the repository**
+---
+---
 
-```bash
-git clone https://github.com/vchaitanyachowdari/readme-studio.git
-cd readme-studio
-```
+# Portfolio Inspiration
 
-2. **Install dependencies**
+![Portfolio Ideas banner image](https://github.com/vchaitanyachowdari/Portfolio-Inspiration)
 
-```bash
-npm install
-```
+<div>
+<h1 align="center">Portfolio Ideas</h1> 
+<p>A curation of awesome portfolio ideas for developers and designers to draw inspirations when they decide to create their own. Want to add yours or someone else's, feel free to raise a PR to add them. Inspired by <a href="https://github.com/GorvGoyl/Clone-Wars">clone Wars</a>, <a href="https://hashnode.com/post/30-web-developer-portfolios-to-inspire-you-cknfx6wdg069kxws1bjjv8mhw">30 web developer ideas to inspire you</a> and my personal struggles :).</p>
+</div>
 
-3. **Set up environment variables**
+---
+---
 
-Create a `.env` file in the root directory and add your Google Gemini API key:
+# 🚀 SEO Audit & Conversion Rate Optimizer
 
-```bash
-cp .env.example .env
-```
+A modern, AI-powered SaaS platform that provides comprehensive SEO audits and conversion rate optimization insights for landing pages and websites.
 
-Then edit the `.env` file and add your API key:
+<img width="1470" alt="Screenshot 2025-06-24 at 1 02 18 PM" src="https://github.com/user-attachments/assets/bb101d44-ef90-43e5-ac13-8830d779c3d7" />
 
-```
-VITE_GOOGLE_API_KEY=your_google_gemini_api_key_here
-```
+## 🌟 Features
 
-> Note: The AI-powered README generation feature requires a valid Google Gemini API key. Without it, only the editor functionality will be available.
+### 🔍 **SEO Analysis**
+- **Technical SEO Audit** - Meta tags, headers, schema markup analysis
+- **Performance Metrics** - Core Web Vitals, page speed optimization
+- **Content Analysis** - Keyword density, readability scores
+- **Mobile Optimization** - Responsive design and mobile-first indexing
+- **Security Checks** - HTTPS, security headers validation
 
-4. **Start the development server**
+---
+---
 
-```bash
-npm run dev
-```
+# 🤖 AI Assistant App
 
-The application will be available at `http://localhost:5173`
+A modern, full-stack AI-powered productivity assistant built with Next.js, Supabase, and advanced AI models. This app helps users manage emails, calendar events, tasks, and integrations through an intelligent conversational interface.
 
-## 🚀 Production Build
+## ✨ Features
 
-To create and preview a production build:
+### 🧠 **AI-Powered Assistant**
+- **Multiple AI Providers**: OpenRouter (DeepSeek, Llama, Phi-3) and Google Gemini
+- **Context-Aware Responses**: Uses real user data for intelligent suggestions
+- **Persistent Conversations**: All chats saved to database with session management
+- **Customizable Response Styles**: Professional, Casual, Concise, or Detailed
+- **Smart Task Suggestions**: AI analyzes your activity to recommend actions
 
-### Build the application
+---
+---
 
-```bash
-npm run build
-```
+# Resume Builder Website Clone
 
-This will generate optimized static assets in the `dist/` directory.
+A comprehensive AI-powered productivity platform that helps users transform hours of work into minutes using artificial intelligence. This project is a complete recreation of the BlinkFind website with enhanced features and a modern light theme design.
 
-### Preview the production build
+## 🌟 Overview
 
-```bash
-npm run preview
-```
+Resume Builder is an innovative AI platform designed for busy professionals who want to maximize their productivity. The platform offers a suite of AI-powered tools, with the flagship AI Resume Builder that creates ATS-optimized resumes in minutes.
 
-This serves the built app locally for testing at `http://localhost:4173`
+## ✨ Features
 
-## 📁 Project Structure
+### Core Features
+- **AI Resume Builder**: Create professional, ATS-optimized resumes with AI assistance
+- **Multi-step Form Process**: Comprehensive resume building with progress tracking
+- **Real-time ATS Scoring**: Live feedback on resume optimization (0-100 scale)
+- **Dynamic Content Management**: Add/remove multiple education, experience, and project entries
+- **Progress Tracking**: Individual field completion percentages and overall progress
+- **Issue Detection**: Automatic identification of missing critical sections
 
-```
-├── public/                 # Static assets
-├── src/
-│   ├── components/         # Reusable UI components
-│   │   ├── editor-box/     # Editor and preview components
-│   │   ├── generation-steps/ # AI generation wizard steps
-│   │   ├── modals/         # Modal dialogs
-│   │   ├── templates/      # Template components
-│   │   └── ui/             # Custom UI components
-│   ├── constants/          # Application constants
-│   ├── data/               # Static data files
-│   ├── layouts/            # Layout components
-│   ├── pages/              # Page components (routes)
-│   ├── stores/             # Pinia stores for state management
-│   ├── utils/              # Utility functions
-│   ├── App.vue             # Root component
-│   ├── main.ts             # Entry point
-│   ├── router.ts           # Vue Router configuration
-│   └── style.css           # Global styles
-├── index.html              # Main HTML file
-├── package.json            # Project dependencies and scripts
-├── tsconfig.json           # TypeScript configuration
-├── vite.config.ts          # Vite configuration
-└── README.md               # This file
-```
+---
+---
+# 🚀 Mindmap Generator AI
 
-## 🤝 Contributing
+**Mindmap Generator AI** is an open-source tool that transforms plain text documents into structured, visual mindmaps using AI — ideal for brainstorming, note-taking, and learning.
 
-We welcome contributions from the community! Please read our [Contributing Guide](CONTRIBUTING.md) for details on how to:
+## ⚙️ Features
 
-- Report bugs and suggest features
-- Submit pull requests
-- Set up your development environment
-- Follow our coding standards
+* AI-powered parsing of text into hierarchical concepts
+* Export mindmaps as JSON / Markdown / visual image
+* CLI interface + optional web frontend
+* Customizable via config file or command-line flags
 
-Please also adhere to our [Code of Conduct](CODE_OF_CONDUCT.md) in all interactions.
-
-## 📄 License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE.md) file for details.
-
-## 🌟 Show Your Support
-
-If you find Readme Studio helpful, please consider:
-
-- Giving it a star on GitHub ⭐
-- Sharing it with your developer friends
-- Contributing to the project
+---
+---
 
 ## 📞 Contact
 
@@ -237,3 +216,4 @@ For questions, suggestions, or issues:
 - [Vue.js](https://vuejs.org/) for the amazing framework
 - [Tailwind CSS](https://tailwindcss.com/) for the utility-first CSS framework
 - All the open-source libraries and tools that made this project possible
+
