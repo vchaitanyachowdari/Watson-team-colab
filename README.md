@@ -4,8 +4,9 @@
 
 A short description of the project. Explain what it does and who it is for.
 
-<a href="https://github.com/FlowiseAI/Flowise">
-<img width="100%" src="1753471006269.mp4"></a>
+<video width="100%" controls>
+  <source src="1753471006269.mp4" type="video/mp4">
+</video>
 
 ## Features
 - Clear, concise bullets of core features
