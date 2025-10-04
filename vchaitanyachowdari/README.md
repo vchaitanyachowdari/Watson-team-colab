@@ -209,11 +209,3 @@ For questions, suggestions, or issues:
 
 - Create an issue on [GitHub](https://github.com/vchaitanyachowdari/readme-studio/issues)
 - Contact the maintainer: [vchaitanya@chowdari.in](mailto:vchaitanya@chowdari.in)
-
-## 🙏 Acknowledgements
-
-- [Google Gemini](https://ai.google.dev/) for powering the AI generation
-- [Vue.js](https://vuejs.org/) for the amazing framework
-- [Tailwind CSS](https://tailwindcss.com/) for the utility-first CSS framework
-- All the open-source libraries and tools that made this project possible
-
