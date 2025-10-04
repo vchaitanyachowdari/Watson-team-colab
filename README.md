@@ -1,6 +1,5 @@
 # Watson-team-colab
 
-[![CI](https://github.com/REPLACE_ORG/Watson-team-colab/actions/workflows/ci.yml/badge.svg)](https://github.com/REPLACE_ORG/Watson-team-colab/actions/workflows/ci.yml)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 
 A short description of the project. Explain what it does and who it is for.
@@ -10,25 +9,9 @@ A short description of the project. Explain what it does and who it is for.
 - Another feature
 - And one more
 
-## Getting Started
+## Media
+- [1753471006269.mp4](1753471006269.mp4) - Project demonstration video
 
-### Prerequisites
-- Node.js 18+ (if applicable)
-
-### Installation
-```bash
-# clone
-git clone https://github.com/REPLACE_ORG/Watson-team-colab.git
-cd Watson-team-colab
-
-# install deps (if package.json exists)
-npm install
-```
-
-### Usage
-```bash
-npm run start
-```
 
 ## Contributing
 Please read `CONTRIBUTING.md` for guidelines. By participating, you agree to the `CODE_OF_CONDUCT.md`.
