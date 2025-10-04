@@ -4,14 +4,13 @@
 
 A short description of the project. Explain what it does and who it is for.
 
+<a href="https://github.com/FlowiseAI/Flowise">
+<img width="100%" src="https://github.com/vchaitanyachowdari/Watson-team-colab/1753471006269.mp4?raw=true"></a>
+
 ## Features
 - Clear, concise bullets of core features
 - Another feature
 - And one more
-
-## Media
-- [1753471006269.mp4](1753471006269.mp4) - Project demonstration video
-
 
 ## Contributing
 Please read `CONTRIBUTING.md` for guidelines. By participating, you agree to the `CODE_OF_CONDUCT.md`.
